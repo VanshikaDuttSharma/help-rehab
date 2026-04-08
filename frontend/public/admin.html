@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Help Rehab Clinic</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #0b1220;
+      --surface: #111827;
+      --card:    #1a2436;
+      --border:  #2d3a50;
+      --text:    #e5e7eb;
+      --muted:   #8b9ab0;
+      --teal:    #14b8a6;
+      --teal-d:  #0d9488;
+      --danger:  #f87171;
+      --success: #34d399;
+      --gold:    #f59e0b;
+      --radius:  10px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    a { color: var(--teal); text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; }
+
+    /* ── Login screen ── */
+    .login-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: radial-gradient(ellipse at 30% 40%, rgba(13,148,136,.18) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 70%, rgba(99,102,241,.12) 0%, transparent 50%),
+                  var(--bg);
+    }
+    .login-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+    .login-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .login-logo .badge {
+      width: 42px; height: 42px;
+      background: var(--teal);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem; color: #fff;
+    }
+    .login-logo h1 { font-size: 1rem; font-weight: 700; }
+    .login-logo span { display: block; font-size: .72rem; color: var(--muted); }
+    .login-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
+    .login-sub   { font-size: .88rem; color: var(--muted); margin-bottom: 28px; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .field label { font-size: .83rem; font-weight: 600; color: var(--muted); }
+    .field input {
+      padding: 11px 14px;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: .95rem;
+      width: 100%;
+      transition: border-color .2s;
+    }
+    .field input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(20,184,166,.15); }
+    .btn-login {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-d));
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 8px;
+      transition: opacity .2s, transform .2s;
+    }
+    .btn-login:hover { opacity: .9; transform: translateY(-1px); }
+    .login-err { margin-top: 14px; color: var(--danger); font-size: .85rem; min-height: 20px; }
+
+    /* ── Dashboard layout ── */
+    .dashboard { display: none; min-height: 100vh; flex-direction: column; }
+    .topbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 28px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 12px; }
+    .topbar-badge { width: 34px; height: 34px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; }
+    .topbar-title { font-weight: 700; font-size: .95rem; }
+    .topbar-sub   { font-size: .72rem; color: var(--muted); }
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .user-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    .user-pill strong { color: var(--text); }
+    .btn-logout {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      font-size: .82rem;
+      transition: all .2s;
+    }
+    .btn-logout:hover { border-color: var(--danger); color: var(--danger); }
+
+    /* ── Tabs ── */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      padding: 16px 28px 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .tab-btn {
+      padding: 10px 20px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: all .2s;
+      margin-bottom: -1px;
+    }
+    .tab-btn:hover  { color: var(--text); }
+    .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+    /* ── Content ── */
+    .content { padding: 28px; flex: 1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Stats grid ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .stat-card .label { font-size: .76rem; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; }
+    .stat-card .value { font-size: 2rem; font-weight: 700; color: var(--text); line-height: 1; }
+    .stat-card .sub   { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+    .stat-card.accent .value { color: var(--teal); }
+
+    /* ── Table card ── */
+    .table-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .table-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .table-header h3 { font-size: .92rem; font-weight: 700; }
+    .search-box {
+      padding: 7px 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: .85rem;
+      width: 220px;
+    }
+    .search-box:focus { outline: none; border-color: var(--teal); }
+    table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+    th { padding: 10px 16px; text-align: left; font-size: .74rem; font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: .06em; }
+    td { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.04); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,.02); }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: .74rem;
+      font-weight: 600;
+    }
+    .badge-new       { background: rgba(20,184,166,.15);  color: var(--teal); }
+    .badge-progress  { background: rgba(245,158,11,.15);  color: var(--gold); }
+    .badge-resolved  { background: rgba(52,211,153,.15);  color: var(--success); }
+    .badge-spam      { background: rgba(248,113,113,.15); color: var(--danger); }
+    .badge-pending   { background: rgba(245,158,11,.15);  color: var(--gold); }
+    .badge-scheduled { background: rgba(99,102,241,.15);  color: #818cf8; }
+    .badge-confirmed { background: rgba(20,184,166,.15);  color: var(--teal); }
+    .badge-completed { background: rgba(52,211,153,.15);  color: var(--success); }
+    .badge-cancelled { background: rgba(248,113,113,.15); color: var(--danger); }
+
+    /* ── Accept modal ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.6); z-index: 100;
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 32px; width: 100%; max-width: 440px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+    .modal h3 { font-size: 1rem; font-weight: 700; margin-bottom: 18px; }
+    .modal .field { margin-bottom: 14px; }
+    .modal .field label { display: block; font-size: .8rem; font-weight: 600; color: var(--muted); margin-bottom: 5px; }
+    .modal .field input, .modal .field select {
+      width: 100%; padding: 9px 12px;
+      background: var(--bg); border: 1.5px solid var(--border);
+      border-radius: var(--radius); color: var(--text); font-size: .9rem;
+    }
+    .modal .field input:focus, .modal .field select:focus { outline: none; border-color: var(--teal); }
+    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+    .btn-primary {
+      padding: 9px 20px; background: var(--teal); color: #fff;
+      border: none; border-radius: var(--radius); font-weight: 700; font-size: .88rem;
+      transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: .85; }
+    .btn-secondary {
+      padding: 9px 20px; background: transparent; color: var(--muted);
+      border: 1px solid var(--border); border-radius: var(--radius); font-size: .88rem;
+    }
+    .btn-secondary:hover { border-color: var(--text); color: var(--text); }
+    .modal-err { color: var(--danger); font-size: .82rem; margin-top: 8px; min-height: 18px; }
+
+    .action-btn {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: .76rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--muted);
+      transition: all .15s;
+    }
+    .action-btn:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* ── Pagination ── */
+    .pagination { display: flex; gap: 8px; justify-content: flex-end; padding: 12px 16px; border-top: 1px solid var(--border); }
+    .page-btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: .82rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: all .2s;
+    }
+    .page-btn:hover, .page-btn.active { border-color: var(--teal); color: var(--teal); }
+    .page-btn:disabled { opacity: .4; cursor: default; }
+
+    /* ── Loading / empty ── */
+    .loading { padding: 32px; text-align: center; color: var(--muted); }
+    .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,.15); border-top-color: var(--teal); border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: 8px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 0 16px; }
+      .content { padding: 16px; }
+      .tabs { padding: 12px 16px 0; }
+      table { font-size: .78rem; }
+      th, td { padding: 8px 10px; }
+      .search-box { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LOGIN SCREEN ─────────────────────────────────────────── -->
+<div class="login-wrap" id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="badge">HR</div>
+      <div>
+        <h1>Help Rehab Clinic</h1>
+        <span>Staff Administration</span>
+      </div>
+    </div>
+    <p class="login-title">Welcome back</p>
+    <p class="login-sub">Sign in to access the admin dashboard.</p>
+    <div class="field">
+      <label for="login-username">Username or Email</label>
+      <input type="text" id="login-username" placeholder="admin" autocomplete="username" />
+    </div>
+    <div class="field">
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" />
+    </div>
+    <button class="btn-login" id="login-btn">Sign In</button>
+    <p class="login-err" id="login-err"></p>
+  </div>
+</div>
+
+<!-- ── DASHBOARD ────────────────────────────────────────────── -->
+<div class="dashboard" id="dashboard">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-badge">HR</div>
+      <div>
+        <div class="topbar-title">Help Rehab Clinic</div>
+        <div class="topbar-sub">Admin Dashboard</div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="user-pill">Signed in as <strong id="admin-username">—</strong></div>
+      <button class="btn-logout" id="logout-btn">Sign Out</button>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="inquiries">Inquiries</button>
+    <button class="tab-btn" data-tab="appointments">Appointments</button>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Overview tab -->
+    <div class="tab-panel active" id="tab-overview">
+      <div class="stats-grid" id="stats-grid">
+        <div class="loading"><span class="spinner"></span>Loading stats…</div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header"><h3>Recent Inquiries</h3></div>
+        <table>
+          <thead><tr><th>Name</th><th>Service</th><th>Status</th><th>Received</th></tr></thead>
+          <tbody id="recent-inq-body"><tr><td colspan="4" class="loading">Loading…</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header"><h3>Upcoming Appointments</h3></div>
+        <table>
+          <thead><tr><th>When</th><th>Patient</th><th>Doctor</th><th>Service</th><th>Status</th></tr></thead>
+          <tbody id="upcoming-appt-body"><tr><td colspan="5" class="loading">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Inquiries tab -->
+    <div class="tab-panel" id="tab-inquiries">
+      <div class="table-card">
+        <div class="table-header">
+          <h3>All Inquiries</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <input class="search-box" id="inq-search" placeholder="Search name, email…" />
+            <select class="search-box" id="inq-status" style="width:140px">
+              <option value="">All statuses</option>
+              <option value="new">New</option>
+              <option value="in_progress">In Progress</option>
+              <option value="resolved">Resolved</option>
+              <option value="spam">Spam</option>
+            </select>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th><th>Email</th><th>Phone</th><th>Service</th>
+              <th>Message</th><th>Status</th><th>Date</th><th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="inq-body"><tr><td colspan="8" class="loading">Loading…</td></tr></tbody>
+        </table>
+        <div class="pagination" id="inq-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Appointments tab -->
+    <div class="tab-panel" id="tab-appointments">
+      <div class="table-card">
+        <div class="table-header">
+          <h3>Appointments</h3>
+          <select class="search-box" id="appt-status" style="width:160px">
+            <option value="">All statuses</option>
+            <option value="scheduled">Scheduled</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+            <option value="no_show">No Show</option>
+          </select>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date & Time</th><th>Patient</th><th>Doctor</th>
+              <th>Service</th><th>Duration</th><th>Status</th><th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="appt-body"><tr><td colspan="7" class="loading">Loading…</td></tr></tbody>
+        </table>
+        <div class="pagination" id="appt-pagination"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── ACCEPT INQUIRY MODAL ──────────────────────────────────── -->
+<div class="modal-overlay" id="accept-modal">
+  <div class="modal">
+    <h3>Accept Inquiry &amp; Book Appointment</h3>
+    <div class="field">
+      <label>Patient Name</label>
+      <input type="text" id="accept-patient-name" readonly style="opacity:.6" />
+    </div>
+    <div class="field">
+      <label>Appointment Date &amp; Time *</label>
+      <input type="datetime-local" id="accept-datetime" />
+    </div>
+    <div class="field">
+      <label>Doctor / Therapist (optional)</label>
+      <select id="accept-doctor">
+        <option value="">— Select Doctor —</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Duration (minutes)</label>
+      <select id="accept-duration">
+        <option value="30">30 min</option>
+        <option value="45" selected>45 min</option>
+        <option value="60">60 min</option>
+        <option value="90">90 min</option>
+      </select>
+    </div>
+    <p class="modal-err" id="accept-err"></p>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeAcceptModal()">Cancel</button>
+      <button class="btn-primary" id="accept-confirm-btn" onclick="confirmAccept()">Confirm &amp; Send Email</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   Admin Dashboard — JavaScript
+   Uses JWT Bearer auth against /api/*
+   ============================================================ */
+
+const API = "/api";
+let token  = localStorage.getItem("admin_token") || "";
+let adminUser = null;
+
+// ── Helpers ────────────────────────────────────────────────────
+function authHeaders() {
+  return { "Content-Type": "application/json", "Authorization": `Bearer ${token}` };
+}
+
+function esc(s) {
+  return String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function fmtDate(d) {
+  if (!d) return "—";
+  return new Date(d).toLocaleString("en-IN", { dateStyle: "short", timeStyle: "short" });
+}
+
+function statusBadge(s) {
+  const map = { new:"badge-new", in_progress:"badge-progress", resolved:"badge-resolved", spam:"badge-spam", pending:"badge-pending", scheduled:"badge-scheduled", confirmed:"badge-confirmed", completed:"badge-completed", cancelled:"badge-cancelled", no_show:"badge-spam" };
+  return `<span class="badge ${map[s]||""}">${esc(s?.replace("_"," ")||"—")}</span>`;
+}
+
+// ── Auth ───────────────────────────────────────────────────────
+async function tryLogin() {
+  const username = document.getElementById("login-username").value.trim();
+  const password = document.getElementById("login-password").value;
+  const errEl    = document.getElementById("login-err");
+  const btn      = document.getElementById("login-btn");
+
+  if (!username || !password) { errEl.textContent = "Please enter username and password."; return; }
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Signing in…';
+  errEl.textContent = "";
+
+  try {
+    const res  = await fetch(`${API}/auth/login`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ username, password }) });
+    const json = await res.json();
+    if (!res.ok) throw new Error(json.error || "Login failed.");
+    token = json.token;
+    adminUser = json.user;
+    localStorage.setItem("admin_token", token);
+    showDashboard();
+  } catch (err) {
+    errEl.textContent = err.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Sign In";
+  }
+}
+
+async function verifyToken() {
+  if (!token) return false;
+  try {
+    const res = await fetch(`${API}/auth/me`, { headers: authHeaders() });
+    if (!res.ok) return false;
+    const json = await res.json();
+    adminUser  = json.user;
+    return true;
+  } catch { return false; }
+}
+
+function logout() {
+  token = "";
+  adminUser = null;
+  localStorage.removeItem("admin_token");
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("login-screen").style.display = "flex";
+  document.getElementById("login-password").value = "";
+  document.getElementById("login-err").textContent = "";
+}
+
+// ── Dashboard init ─────────────────────────────────────────────
+function showDashboard() {
+  document.getElementById("login-screen").style.display = "none";
+  document.getElementById("dashboard").style.display = "flex";
+  document.getElementById("admin-username").textContent = adminUser?.username || "—";
+  loadOverview();
+  loadInquiries();
+  loadAppointments();
+}
+
+// ── Tabs ───────────────────────────────────────────────────────
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
+  });
+});
+
+// ── Overview ───────────────────────────────────────────────────
+async function loadOverview() {
+  try {
+    const res  = await fetch(`${API}/dashboard/stats`, { headers: authHeaders() });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error);
+
+    document.getElementById("stats-grid").innerHTML = `
+      <div class="stat-card accent"><div class="label">Total Inquiries</div><div class="value">${data.inquiries.total}</div><div class="sub">${data.inquiries.new} new</div></div>
+      <div class="stat-card"><div class="label">Appointments Today</div><div class="value">${data.appointments.today}</div><div class="sub">&nbsp;</div></div>
+      <div class="stat-card accent"><div class="label">Upcoming Appointments</div><div class="value">${data.appointments.upcoming}</div><div class="sub">confirmed &amp; scheduled</div></div>
+      <div class="stat-card accent"><div class="label">Total Patients</div><div class="value">${data.patients}</div><div class="sub">&nbsp;</div></div>
+    `;
+
+    document.getElementById("recent-inq-body").innerHTML = data.recentInquiries.length
+      ? data.recentInquiries.map(i => `<tr><td>${esc(i.name)}</td><td>${esc(i.service||"—")}</td><td>${statusBadge(i.status)}</td><td>${fmtDate(i.created_at)}</td></tr>`).join("")
+      : `<tr><td colspan="4" class="loading">No inquiries yet.</td></tr>`;
+
+    document.getElementById("upcoming-appt-body").innerHTML = data.upcomingAppointments.length
+      ? data.upcomingAppointments.map(a => `<tr><td>${fmtDate(a.scheduled_at)}</td><td>${esc(a.patient||"—")}</td><td>${esc(a.doctor||"—")}</td><td>${esc(a.service||"—")}</td><td>${statusBadge(a.status)}</td></tr>`).join("")
+      : `<tr><td colspan="5" class="loading">No upcoming appointments.</td></tr>`;
+  } catch (err) {
+    document.getElementById("stats-grid").innerHTML = `<div style="color:var(--danger);padding:16px">Failed to load stats: ${esc(err.message)}</div>`;
+  }
+}
+
+// ── Inquiries ──────────────────────────────────────────────────
+let inqPage = 1;
+async function loadInquiries(page = 1) {
+  inqPage = page;
+  const search = document.getElementById("inq-search").value.trim();
+  const status = document.getElementById("inq-status").value;
+  const params = new URLSearchParams({ page, limit: 15 });
+  if (search) params.set("search", search);
+  if (status) params.set("status", status);
+
+  document.getElementById("inq-body").innerHTML = `<tr><td colspan="8" class="loading"><span class="spinner"></span>Loading…</td></tr>`;
+  try {
+    const res  = await fetch(`${API}/inquiries?${params}`, { headers: authHeaders() });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error);
+
+    document.getElementById("inq-body").innerHTML = data.data.length
+      ? data.data.map(i => `
+          <tr>
+            <td>${esc(i.name)}</td>
+            <td>${esc(i.email)}</td>
+            <td>${esc(i.phone||"—")}</td>
+            <td>${esc(i.service_name||"—")}</td>
+            <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(i.message)}">${esc(i.message)}</td>
+            <td>${statusBadge(i.status)}</td>
+            <td>${fmtDate(i.created_at)}</td>
+            <td style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+              ${i.status !== "resolved" ? `<button class="action-btn" style="border-color:var(--teal);color:var(--teal)" onclick="openAcceptModal('${i.id}','${esc(i.name)}')">✓ Accept</button>` : `<span style="color:var(--muted);font-size:.76rem">Accepted</span>`}
+              <select onchange="updateInqStatus('${i.id}',this.value,this)" style="background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:4px 6px;border-radius:6px;font-size:.76rem">
+                <option value="">Status…</option>
+                <option value="new">New</option>
+                <option value="in_progress">In Progress</option>
+                <option value="resolved">Resolved</option>
+                <option value="spam">Spam</option>
+              </select>
+            </td>
+          </tr>`).join("")
+      : `<tr><td colspan="8" class="loading">No inquiries found.</td></tr>`;
+
+    renderPagination("inq-pagination", data.total, 15, page, p => loadInquiries(p));
+  } catch (err) {
+    document.getElementById("inq-body").innerHTML = `<tr><td colspan="8" style="color:var(--danger);padding:16px">Error: ${esc(err.message)}</td></tr>`;
+  }
+}
+
+async function updateInqStatus(id, status, sel) {
+  if (!status) return;
+  try {
+    await fetch(`${API}/inquiries/${id}`, { method: "PATCH", headers: authHeaders(), body: JSON.stringify({ status }) });
+    loadInquiries(inqPage);
+  } catch { sel.value = ""; }
+}
+
+document.getElementById("inq-search").addEventListener("input", debounce(() => loadInquiries(1), 400));
+document.getElementById("inq-status").addEventListener("change", () => loadInquiries(1));
+
+// ── Appointments ───────────────────────────────────────────────
+let apptPage = 1;
+async function loadAppointments(page = 1) {
+  apptPage = page;
+  const status = document.getElementById("appt-status").value;
+  const params = new URLSearchParams({ page, limit: 15 });
+  if (status) params.set("status", status);
+
+  document.getElementById("appt-body").innerHTML = `<tr><td colspan="7" class="loading"><span class="spinner"></span>Loading…</td></tr>`;
+  try {
+    const res  = await fetch(`${API}/appointments?${params}`, { headers: authHeaders() });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error);
+
+    document.getElementById("appt-body").innerHTML = data.data.length
+      ? data.data.map(a => `
+          <tr>
+            <td>${fmtDate(a.scheduled_at)}</td>
+            <td>${esc(a.patient_name||"—")}<br><small style="color:var(--muted)">${esc(a.patient_phone||"")}</small></td>
+            <td>${esc(a.doctor_name||"—")}</td>
+            <td>${esc(a.service_name||"—")}</td>
+            <td>${a.duration_mins} min</td>
+            <td>${statusBadge(a.status)}</td>
+            <td>
+              <select onchange="updateApptStatus('${a.id}',this.value,this)" style="background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:4px 6px;border-radius:6px;font-size:.76rem">
+                <option value="">Change…</option>
+                <option value="scheduled">Scheduled</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+                <option value="no_show">No Show</option>
+              </select>
+            </td>
+          </tr>`).join("")
+      : `<tr><td colspan="7" class="loading">No appointments found.</td></tr>`;
+
+    renderPagination("appt-pagination", data.total, 15, page, p => loadAppointments(p));
+  } catch (err) {
+    document.getElementById("appt-body").innerHTML = `<tr><td colspan="7" style="color:var(--danger);padding:16px">Error: ${esc(err.message)}</td></tr>`;
+  }
+}
+
+async function updateApptStatus(id, status, sel) {
+  if (!status) return;
+  try {
+    await fetch(`${API}/appointments/${id}`, { method: "PATCH", headers: authHeaders(), body: JSON.stringify({ status }) });
+    loadAppointments(apptPage);
+  } catch { sel.value = ""; }
+}
+
+document.getElementById("appt-status").addEventListener("change", () => loadAppointments(1));
+
+// ── Pagination helper ─────────────────────────────────────────
+function renderPagination(containerId, total, limit, current, cb) {
+  const pages = Math.ceil(total / limit);
+  const el = document.getElementById(containerId);
+  if (pages <= 1) { el.innerHTML = ""; return; }
+
+  let html = `<button class="page-btn" ${current <= 1 ? "disabled" : ""} onclick="(${cb.toString()})(${current - 1})">← Prev</button>`;
+  for (let i = Math.max(1, current - 2); i <= Math.min(pages, current + 2); i++) {
+    html += `<button class="page-btn ${i === current ? "active" : ""}" onclick="(${cb.toString()})(${i})">${i}</button>`;
+  }
+  html += `<button class="page-btn" ${current >= pages ? "disabled" : ""} onclick="(${cb.toString()})(${current + 1})">Next →</button>`;
+  el.innerHTML = html;
+}
+
+// ── Debounce helper ───────────────────────────────────────────
+function debounce(fn, ms) {
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+// ── Accept Inquiry Modal ───────────────────────────────────────
+let acceptInquiryId = null;
+let doctorsList     = [];
+
+async function loadDoctorsForModal() {
+  if (doctorsList.length) return;
+  try {
+    const res  = await fetch(`${API}/doctors`);
+    doctorsList = await res.json();
+    const sel  = document.getElementById("accept-doctor");
+    doctorsList.forEach(d => {
+      const opt = document.createElement("option");
+      opt.value       = d._id || d.id;
+      opt.textContent = d.full_name + (d.designation ? ` — ${d.designation}` : "");
+      sel.appendChild(opt);
+    });
+  } catch { /* non-critical */ }
+}
+
+function openAcceptModal(inquiryId, patientName) {
+  acceptInquiryId = inquiryId;
+  document.getElementById("accept-patient-name").value = patientName;
+  document.getElementById("accept-datetime").value     = "";
+  document.getElementById("accept-doctor").value       = "";
+  document.getElementById("accept-err").textContent    = "";
+  // Set min datetime to now
+  const now = new Date();
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+  document.getElementById("accept-datetime").min = now.toISOString().slice(0, 16);
+  loadDoctorsForModal();
+  document.getElementById("accept-modal").classList.add("open");
+}
+
+function closeAcceptModal() {
+  document.getElementById("accept-modal").classList.remove("open");
+  acceptInquiryId = null;
+}
+
+async function confirmAccept() {
+  const scheduledAt = document.getElementById("accept-datetime").value;
+  const doctorId    = document.getElementById("accept-doctor").value;
+  const duration    = document.getElementById("accept-duration").value;
+  const errEl       = document.getElementById("accept-err");
+  const btn         = document.getElementById("accept-confirm-btn");
+
+  if (!scheduledAt) { errEl.textContent = "Please select an appointment date and time."; return; }
+
+  btn.disabled = true;
+  btn.textContent = "Booking…";
+  errEl.textContent = "";
+
+  try {
+    const body = { scheduled_at: new Date(scheduledAt).toISOString(), duration_mins: parseInt(duration) };
+    if (doctorId) body.doctor_id = doctorId;
+
+    const res  = await fetch(`${API}/inquiries/${acceptInquiryId}/accept`, {
+      method: "POST", headers: authHeaders(), body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Failed to accept inquiry.");
+
+    closeAcceptModal();
+    loadInquiries(inqPage);
+    loadAppointments(1);
+    loadOverview();
+    alert(`Appointment booked and confirmation email sent to patient.`);
+  } catch (err) {
+    errEl.textContent = err.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Confirm & Send Email";
+  }
+}
+
+// Close modal on overlay click
+document.getElementById("accept-modal").addEventListener("click", function(e) {
+  if (e.target === this) closeAcceptModal();
+});
+
+// ── Event listeners ───────────────────────────────────────────
+document.getElementById("login-btn").addEventListener("click", tryLogin);
+document.getElementById("login-password").addEventListener("keydown", e => { if (e.key === "Enter") tryLogin(); });
+document.getElementById("logout-btn").addEventListener("click", logout);
+
+// ── Init ──────────────────────────────────────────────────────
+(async () => {
+  if (token && await verifyToken()) {
+    showDashboard();
+  } else {
+    token = "";
+    localStorage.removeItem("admin_token");
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Rehab Clinic Jammu | Physiotherapy, Rehabilitation &amp; Psychiatry</title>
+  <meta name="description" content="Help Rehab Clinic Jammu — comprehensive physiotherapy, neurological rehabilitation, and psychiatry services in Jammu, J&K. Book your appointment today." />
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Help Rehab Clinic Jammu | Physiotherapy &amp; Rehabilitation" />
+  <meta property="og:description" content="Comprehensive physiotherapy, neurological rehabilitation, and psychiatry services in Jammu, J&K." />
+  <meta property="og:image" content="https://images.pexels.com/photos/6129682/pexels-photo-6129682.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+  <meta property="og:url" content="https://helprehabclinic.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon — medical cross logo -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230d9488'/><rect x='42' y='18' width='16' height='64' rx='8' fill='white'/><rect x='18' y='42' width='64' height='16' rx='8' fill='white'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── PAGE LOADER ──────────────────────────────────────────── -->
+<div class="page-loader" id="page-loader">
+  <div class="loader-inner">
+    <div class="loader-logo-badge">HR</div>
+    <div class="loader-name">Help Rehab Clinic</div>
+    <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
+  </div>
+</div>
+
+<!-- ── SCROLL PROGRESS ──────────────────────────────────────── -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- ── ANNOUNCEMENT BAR ─────────────────────────────────────── -->
+<div class="announce-bar" id="announce-bar">
+  <div class="announce-inner">
+    <span class="announce-dot"></span>
+    <span>📞 <a href="tel:+917051983422">+91 7051 983 422</a> &nbsp;|&nbsp; 🕘 Mon–Sat · 9am–7pm &nbsp;|&nbsp; 📍 Sector 7, Talab Tillo, Jammu</span>
+    <button class="announce-close" id="announce-close" aria-label="Close">✕</button>
+  </div>
+</div>
+
+<!-- ── NAVBAR ─────────────────────────────────────────────── -->
+<header class="site-header" id="site-header">
+  <nav class="nav">
+    <a href="#home" class="nav-logo">
+      <div class="logo-badge">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="7" fill="#0d9488"/>
+          <rect x="12" y="5" width="4" height="18" rx="2" fill="white"/>
+          <rect x="5" y="12" width="18" height="4" rx="2" fill="white"/>
+        </svg>
+      </div>
+      <div class="logo-text-wrap">
+        <span class="logo-name">Help Rehab Clinic</span>
+        <span class="logo-loc">Jammu, J&amp;K</span>
+      </div>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home"         class="nav-link">Home</a></li>
+      <li><a href="#about"        class="nav-link">About</a></li>
+      <li><a href="#services"     class="nav-link">Services</a></li>
+      <li><a href="#journey"      class="nav-link">Journey</a></li>
+      <li><a href="#team"         class="nav-link">Team</a></li>
+      <li><a href="#gallery"      class="nav-link">Gallery</a></li>
+      <li><a href="#testimonials" class="nav-link">Stories</a></li>
+      <li><a href="#faq"          class="nav-link">FAQ</a></li>
+      <li><a href="#contact"      class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <select class="lang-sel" id="lang-sel" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="hi">हि</option>
+        <option value="pa">ਪੰ</option>
+      </select>
+      <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ── HERO ──────────────────────────────────────────────── -->
+<section id="home" class="hero">
+  <div class="hero-bg">
+    <div class="hero-slide active" style="background-image:url('https://images.pexels.com/photos/6129682/pexels-photo-6129682.jpeg?auto=compress&cs=tinysrgb&w=1400')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.pexels.com/photos/3957987/pexels-photo-3957987.jpeg?auto=compress&cs=tinysrgb&w=1400')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.pexels.com/photos/3845129/pexels-photo-3845129.jpeg?auto=compress&cs=tinysrgb&w=1400')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">
+        <span class="dot"></span>
+        <span id="hero-badge">Rehab · Physiotherapy · Psychiatry — Jammu</span>
+      </div>
+      <h1 class="hero-title reveal" id="hero-heading">
+        Healing you<br><em>back to life</em>
+      </h1>
+      <p class="hero-sub reveal" id="hero-text">
+        Physiotherapy, neurological rehabilitation, and psychiatry under one roof — calm environment, compassionate team.
+      </p>
+      <div class="hero-cta reveal">
+        <a href="#contact" class="btn btn-primary" id="hero-btn-primary">Book an Appointment</a>
+        <a href="#services" class="btn btn-ghost" id="hero-btn-secondary">
+          <span>Explore Programs</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-card reveal">
+      <p class="hero-card-label">Same-Week Appointments</p>
+      <h2 class="hero-card-title">Start your recovery today</h2>
+      <ul class="hero-checks">
+        <li><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="var(--teal)"/><path d="M5 8l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>Rehab &amp; psychiatry under one roof</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="var(--teal)"/><path d="M5 8l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>Multidisciplinary care team</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="var(--teal)"/><path d="M5 8l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>Modern, accessible facility</li>
+      </ul>
+      <div class="hero-card-contact">
+        <div>
+          <span class="hcc-label">Call us</span>
+          <a href="tel:+917051983422" class="hcc-val">+91 7051 983 422</a>
+        </div>
+        <div>
+          <span class="hcc-label">Hours</span>
+          <span class="hcc-val">Mon–Sat · 9am–7pm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="hero-stats-bar">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-item"><span class="stat-num" data-count="1200">0</span><span class="stat-plus">+</span><span class="stat-label">Patients Treated</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><span class="stat-num" data-count="10">0</span><span class="stat-plus">+</span><span class="stat-label">Years of Practice</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><span class="stat-num" data-count="6">0</span><span class="stat-plus"></span><span class="stat-label">Specialties</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><span class="stat-num">4.9</span><span class="stat-plus">★</span><span class="stat-label">Patient Rating</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────────────── -->
+<section id="about" class="section about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-block reveal">
+        <img src="https://images.pexels.com/photos/4145354/pexels-photo-4145354.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Rehabilitation care at Help Rehab Clinic Jammu" loading="lazy" />
+        <div class="about-img-badge">
+          <span class="aib-num">10+</span>
+          <span class="aib-text">Years of Trusted Care</span>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <div class="section-eyebrow">About Us</div>
+        <h2 class="section-title" id="about-title">Jammu's premier rehabilitation centre</h2>
+        <p id="about-subtitle">Help Rehab Clinic provides personalized rehabilitation and psychiatry services — orthopedic, neurological, and post-surgical rehab plus mental health care. Each treatment plan is tailored by our specialists to match your goals, lifestyle, and pace of healing.</p>
+
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Multidisciplinary Team</h3>
+            <p>Physiotherapists, neurologists, psychiatrists &amp; speech therapists working together.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Modern Equipment</h3>
+            <p>State-of-the-art rehab technology and private treatment rooms.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Holistic Approach</h3>
+            <p>We focus on mobility, strength, and long-term quality of life.</p>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn btn-primary">Talk to Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ───────────────────────────────────────────── -->
+<section id="services" class="section services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">What We Offer</div>
+      <h2 class="section-title" id="services-title">Rehabilitation Programs</h2>
+      <p class="section-sub" id="services-subtitle">Targeted programs designed for different stages and types of recovery.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3>Physiotherapy</h3>
+        <p>Restore movement and reduce pain through guided exercises and manual techniques.</p>
+        <ul><li>Post-surgery rehab</li><li>Sports injury recovery</li><li>Chronic pain management</li></ul>
+        <a href="#contact" class="sc-link">Enquire →</a>
+      </article>
+      <article class="service-card reveal">
+        <div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></div>
+        <h3>Neurological Rehab</h3>
+        <p>Specialized therapy for stroke, spinal cord injury, and neurological conditions.</p>
+        <ul><li>Stroke rehabilitation</li><li>Parkinson's care</li><li>Multiple sclerosis support</li></ul>
+        <a href="#contact" class="sc-link">Enquire →</a>
+      </article>
+      <article class="service-card reveal">
+        <div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Psychiatry &amp; Mental Health</h3>
+        <p>Compassionate mental health care including diagnosis, therapy, and medication management.</p>
+        <ul><li>Depression &amp; anxiety</li><li>PTSD &amp; trauma</li><li>Medication management</li></ul>
+        <a href="#contact" class="sc-link">Enquire →</a>
+      </article>
+      <article class="service-card reveal">
+        <div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 18.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13z"/><path d="M12 14v-4M12 10h.01"/></svg></div>
+        <h3>Speech Therapy</h3>
+        <p>Improve communication and swallowing function for adults and children.</p>
+        <ul><li>Aphasia treatment</li><li>Dysphagia management</li><li>Voice disorders</li></ul>
+        <a href="#contact" class="sc-link">Enquire →</a>
+      </article>
+      <article class="service-card reveal">
+        <div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v5M9.5 14.5h5"/></svg></div>
+        <h3>Occupational Therapy</h3>
+        <p>Regain daily living skills and independence through task-focused rehabilitation.</p>
+        <ul><li>ADL training</li><li>Cognitive rehab</li><li>Home modification</li></ul>
+        <a href="#contact" class="sc-link">Enquire →</a>
+      </article>
+      <article class="service-card reveal">
+        <div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"/></svg></div>
+        <h3>Post-Surgical Rehab</h3>
+        <p>Accelerate recovery after joint replacement, spine surgery, or other operations.</p>
+        <ul><li>Knee &amp; hip replacement</li><li>Spine surgery recovery</li><li>Shoulder rehab</li></ul>
+        <a href="#contact" class="sc-link">Enquire →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── PATIENT JOURNEY ────────────────────────────────────── -->
+<section id="journey" class="section journey">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-eyebrow">How It Works</div>
+      <h2 class="section-title">Your Recovery Journey</h2>
+      <p class="section-sub" style="margin:0 auto;">A clear, structured path from your first visit to full recovery.</p>
+    </div>
+    <div class="journey-track">
+      <div class="journey-line"></div>
+      <div class="journey-step reveal">
+        <div class="js-number">01</div>
+        <div class="js-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        </div>
+        <h3>Initial Consultation</h3>
+        <p>Meet your specialist for a full assessment of your condition, history, and goals.</p>
+      </div>
+      <div class="journey-step reveal">
+        <div class="js-number">02</div>
+        <div class="js-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg>
+        </div>
+        <h3>Personalized Plan</h3>
+        <p>Our multidisciplinary team designs a tailored treatment plan just for you.</p>
+      </div>
+      <div class="journey-step reveal">
+        <div class="js-number">03</div>
+        <div class="js-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Active Treatment</h3>
+        <p>Hands-on therapy sessions with our expert clinicians, tracked weekly.</p>
+      </div>
+      <div class="journey-step reveal">
+        <div class="js-number">04</div>
+        <div class="js-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Progress Review</h3>
+        <p>Regular check-ins to measure improvement and adapt the plan as needed.</p>
+      </div>
+      <div class="journey-step reveal">
+        <div class="js-number">05</div>
+        <div class="js-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Full Recovery</h3>
+        <p>Return to daily life with renewed strength, confidence, and independence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ───────────────────────────────────────────────── -->
+<section id="team" class="section team">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Our Specialists</div>
+      <h2 class="section-title" id="doctors-title">Meet Your Care Team</h2>
+      <p class="section-sub" id="doctors-subtitle">Experienced professionals dedicated to attentive, one-on-one care.</p>
+    </div>
+    <div class="team-grid" id="team-grid">
+      <div class="doctor-card reveal">
+        <div class="dc-img dc-avatar" style="background:linear-gradient(135deg,#0d9488,#0891b2)">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="24" r="14" fill="rgba(255,255,255,0.25)"/>
+            <path d="M10 54c0-12.15 9.85-22 22-22s22 9.85 22 22" fill="rgba(255,255,255,0.2)"/>
+            <rect x="27" y="10" width="4" height="14" rx="2" fill="white" opacity="0.9"/>
+            <rect x="21" y="16" width="14" height="4" rx="2" fill="white" opacity="0.9"/>
+          </svg>
+          <div class="dc-avatar-initials">AS</div>
+        </div>
+        <div class="dc-info">
+          <h3>Dr. Anil Sharma</h3>
+          <p class="dc-role">Psychiatry &amp; Mental Health</p>
+          <p class="dc-qual">MBBS, MD (Psychiatry)</p>
+          <p class="dc-bio">Senior psychiatrist with 15+ years experience in mood disorders, anxiety, and neuropsychiatry.</p>
+          <div class="dc-social">
+            <a href="#" aria-label="LinkedIn" class="dc-social-link">in</a>
+            <a href="#" aria-label="Email" class="dc-social-link">✉</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="dc-img dc-avatar" style="background:linear-gradient(135deg,#7c3aed,#0d9488)">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="24" r="14" fill="rgba(255,255,255,0.25)"/>
+            <path d="M10 54c0-12.15 9.85-22 22-22s22 9.85 22 22" fill="rgba(255,255,255,0.2)"/>
+            <path d="M22 28 Q32 18 42 28" stroke="white" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.9"/>
+            <circle cx="32" cy="36" r="4" fill="white" opacity="0.9"/>
+          </svg>
+          <div class="dc-avatar-initials">PK</div>
+        </div>
+        <div class="dc-info">
+          <h3>Dr. Priya Kapoor</h3>
+          <p class="dc-role">Neurological Physiotherapy</p>
+          <p class="dc-qual">BPT, MPT (Neuro)</p>
+          <p class="dc-bio">Expert in stroke rehabilitation, Parkinson's care, and spinal cord injury management.</p>
+          <div class="dc-social">
+            <a href="#" aria-label="LinkedIn" class="dc-social-link">in</a>
+            <a href="#" aria-label="Email" class="dc-social-link">✉</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="dc-img dc-avatar" style="background:linear-gradient(135deg,#0891b2,#059669)">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="24" r="14" fill="rgba(255,255,255,0.25)"/>
+            <path d="M10 54c0-12.15 9.85-22 22-22s22 9.85 22 22" fill="rgba(255,255,255,0.2)"/>
+            <path d="M20 38 L26 32 L32 38 L38 28 L44 34" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9"/>
+          </svg>
+          <div class="dc-avatar-initials">RD</div>
+        </div>
+        <div class="dc-info">
+          <h3>Dr. Ravi Dogra</h3>
+          <p class="dc-role">Orthopedic Physiotherapy</p>
+          <p class="dc-qual">BPT, MPT (Ortho), MIAP</p>
+          <p class="dc-bio">Specializes in sports injuries, post-surgical rehab, and chronic pain management.</p>
+          <div class="dc-social">
+            <a href="#" aria-label="LinkedIn" class="dc-social-link">in</a>
+            <a href="#" aria-label="Email" class="dc-social-link">✉</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="dc-img dc-avatar" style="background:linear-gradient(135deg,#d97706,#0d9488)">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="24" r="14" fill="rgba(255,255,255,0.25)"/>
+            <path d="M10 54c0-12.15 9.85-22 22-22s22 9.85 22 22" fill="rgba(255,255,255,0.2)"/>
+            <path d="M24 32 Q28 26 32 32 Q36 38 40 32" stroke="white" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.9"/>
+            <circle cx="24" cy="32" r="2.5" fill="white" opacity="0.9"/>
+            <circle cx="40" cy="32" r="2.5" fill="white" opacity="0.9"/>
+          </svg>
+          <div class="dc-avatar-initials">SC</div>
+        </div>
+        <div class="dc-info">
+          <h3>Ms. Sunita Choudhary</h3>
+          <p class="dc-role">Speech &amp; Language Therapy</p>
+          <p class="dc-qual">M.Sc. Speech &amp; Hearing</p>
+          <p class="dc-bio">Certified SLP with expertise in aphasia, swallowing disorders, and voice therapy.</p>
+          <div class="dc-social">
+            <a href="#" aria-label="LinkedIn" class="dc-social-link">in</a>
+            <a href="#" aria-label="Email" class="dc-social-link">✉</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY ────────────────────────────────────────────── -->
+<section id="gallery" class="section gallery">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-eyebrow">Our Facility</div>
+      <h2 class="section-title">A Healing Environment</h2>
+      <p class="section-sub" style="margin:0 auto;">Modern, accessible, and designed around patient comfort.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal tall">
+        <img src="https://images.pexels.com/photos/3985163/pexels-photo-3985163.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Physiotherapy treatment room" loading="lazy" />
+        <div class="gallery-overlay"><span>Physiotherapy Room</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://images.pexels.com/photos/7108344/pexels-photo-7108344.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Rehabilitation equipment" loading="lazy" />
+        <div class="gallery-overlay"><span>Modern Equipment</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Patient consultation" loading="lazy" />
+        <div class="gallery-overlay"><span>Consultation Rooms</span></div>
+      </div>
+      <div class="gallery-item reveal wide">
+        <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Neurological rehabilitation" loading="lazy" />
+        <div class="gallery-overlay"><span>Neurological Rehab</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://images.pexels.com/photos/5752287/pexels-photo-5752287.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Therapy session" loading="lazy" />
+        <div class="gallery-overlay"><span>Therapy Sessions</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ───────────────────────────────────────── -->
+<section id="testimonials" class="section testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Patient Stories</div>
+      <h2 class="section-title" id="testimonials-title">Real recoveries, real lives</h2>
+    </div>
+    <div class="testi-track" id="testi-track">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"After my stroke, I couldn't walk or speak properly. The neurological rehab team at Help Rehab Clinic gave me my life back. Within 6 months I was walking independently."</p>
+        <div class="testi-author"><strong>Rajinder Singh</strong> <span>Stroke Survivor, Jammu</span></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The psychiatric team is exceptional. Dr. Sharma understood my anxiety without judgment and gave me practical tools. I feel like myself again after years of struggling."</p>
+        <div class="testi-author"><strong>Meena Gupta</strong> <span>Mental Health Patient</span></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Post knee replacement, I was worried about recovery. The physiotherapy sessions were structured and encouraging. Back to playing cricket in 4 months!"</p>
+        <div class="testi-author"><strong>Vikram Khanna</strong> <span>Post-Surgical Rehab</span></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"My son's speech improved dramatically after just 3 months of therapy with Ms. Sunita. The patience and professionalism here is unmatched in Jammu."</p>
+        <div class="testi-author"><strong>Anita Sharma</strong> <span>Parent, Speech Therapy</span></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The occupational therapy program helped me regain my independence after a serious accident. The team treated me with dignity and genuine care throughout."</p>
+        <div class="testi-author"><strong>Suresh Pandita</strong> <span>Occupational Therapy</span></div>
+      </div>
+    </div>
+    <div class="testi-dots" id="testi-dots"></div>
+  </div>
+</section>
+
+<!-- ── FAQ ────────────────────────────────────────────────── -->
+<section id="faq" class="section faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-sidebar reveal">
+        <div class="section-eyebrow">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+        <p>Can't find an answer? Call us directly or send a message.</p>
+        <a href="tel:+917051983422" class="btn btn-primary" style="margin-top:24px;">📞 Call Now</a>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How long is a typical physiotherapy session?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Sessions typically last 45–60 minutes. For neurological rehabilitation, sessions may run up to 90 minutes. Your therapist will advise you based on your individual plan.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do I need a doctor's referral to book?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>No referral is required for physiotherapy or occupational therapy. For psychiatry services, we recommend bringing any previous medical reports, but walk-ins are welcome.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is psychiatric consultation confidential?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Absolutely. All psychiatric sessions are strictly private and confidential. Your information is never shared with third parties without your explicit consent.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How many sessions will I need?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>The number of sessions depends on your condition and goals. After your initial assessment, your specialist will outline a recommended treatment plan with an estimated timeline.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do you accept health insurance?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>We work with several major insurance providers. Please call us to verify coverage for your specific plan before booking. We also offer flexible payment options.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I bring a family member to sessions?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes, family members are welcome and often encouraged — especially for neurological patients and children receiving speech or occupational therapy.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What should I wear to physiotherapy?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Wear comfortable, loose-fitting clothing that allows the therapist to access the area being treated. For lower limb conditions, shorts are ideal. Supportive footwear is recommended.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────────────── -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="section-eyebrow">Get In Touch</div>
+        <h2 class="section-title" id="contact-title">Book an appointment</h2>
+        <p id="contact-subtitle">Fill the form and our team will reach out within 24 hours to confirm your appointment.</p>
+
+        <div class="contact-details">
+          <div class="cd-item">
+            <div class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><strong>Address</strong><br>Sector 7, Talab Tillo, Jammu — 180002, J&amp;K</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><strong>Phone</strong><br><a href="tel:+917051983422">+91 7051 983 422</a></div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></div>
+            <div><strong>Email</strong><br><a href="mailto:info@helprehabclinic.com">info@helprehabclinic.com</a></div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><strong>Hours</strong><br>Mon–Sat · 9:00 AM – 7:00 PM</div>
+          </div>
+        </div>
+
+        <!-- Google Map Embed -->
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3368.5!2d74.8540!3d32.7266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e854a27bdb805%3A0x9f0a5e4e8f6de4c!2sTalab%20Tillo%2C%20Jammu%2C%20Jammu%20and%20Kashmir%20180002!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+            width="100%" height="200" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Help Rehab Clinic Location">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Full Name *</label>
+              <input type="text" id="fname" name="name" placeholder="Your full name" required autocomplete="name" />
+              <span class="field-hint" id="hint-name"></span>
+            </div>
+            <div class="form-group">
+              <label for="femail">Email *</label>
+              <input type="email" id="femail" name="email" placeholder="your@email.com" required autocomplete="email" />
+              <span class="field-hint" id="hint-email"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fphone">Phone</label>
+              <input type="tel" id="fphone" name="phone" placeholder="+91 XXXXX XXXXX" maxlength="15" />
+              <span class="field-hint" id="hint-phone"></span>
+            </div>
+            <div class="form-group">
+              <label for="fservice">Service Needed</label>
+              <select id="fservice" name="service">
+                <option value="">Select a service</option>
+                <option value="physiotherapy">Physiotherapy</option>
+                <option value="neurological-rehab">Neurological Rehab</option>
+                <option value="psychiatry">Psychiatry &amp; Mental Health</option>
+                <option value="speech-therapy">Speech Therapy</option>
+                <option value="occupational-therapy">Occupational Therapy</option>
+                <option value="post-surgical-rehab">Post-Surgical Rehab</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fdate">Preferred Date</label>
+              <input type="date" id="fdate" name="preferred_date" />
+            </div>
+            <div class="form-group">
+              <label for="ftime">Preferred Time</label>
+              <select id="ftime" name="preferred_time">
+                <option value="">Any time</option>
+                <option value="morning">Morning (9am–12pm)</option>
+                <option value="afternoon">Afternoon (12pm–4pm)</option>
+                <option value="evening">Evening (4pm–7pm)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Message *</label>
+            <textarea id="fmessage" name="message" rows="4" placeholder="Describe your condition or what you need help with..." required></textarea>
+            <span class="field-hint" id="hint-message"></span>
+          </div>
+          <div class="form-status" id="form-status"></div>
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+            <span>Send Inquiry</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+          <p class="form-privacy">🔒 Your information is confidential and never shared with third parties.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="logo-badge">HR</div>
+          <div class="logo-text-wrap">
+            <span class="logo-name">Help Rehab Clinic</span>
+            <span class="logo-loc">Jammu, J&amp;K</span>
+          </div>
+        </div>
+        <p>Comprehensive rehabilitation and psychiatry care in Jammu &amp; Kashmir. Healing minds and bodies since 2014.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="YouTube" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+          </a>
+          <a href="https://wa.me/917051983422" class="social-icon" aria-label="WhatsApp" title="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Physiotherapy</a></li>
+          <li><a href="#services">Neurological Rehab</a></li>
+          <li><a href="#services">Psychiatry</a></li>
+          <li><a href="#services">Speech Therapy</a></li>
+          <li><a href="#services">Occupational Therapy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#journey">Patient Journey</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Book Appointment</a></li>
+          <li><a href="/admin" target="_blank">Staff Login</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>Sector 7, Talab Tillo</li>
+          <li>Jammu — 180002, J&amp;K</li>
+          <li><a href="tel:+917051983422">+91 7051 983 422</a></li>
+          <li><a href="mailto:info@helprehabclinic.com">info@helprehabclinic.com</a></li>
+          <li style="margin-top:8px; color:rgba(255,255,255,.4); font-size:.8rem;">Mon–Sat · 9am–7pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Help Rehab Clinic Jammu. All rights reserved.</p>
+      <p>Crafted with care for J&amp;K's healing community.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/917051983422?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Help%20Rehab%20Clinic%20Jammu." class="whatsapp-btn" id="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+</a>
+
+<!-- Sticky Mobile CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <a href="tel:+917051983422" class="sticky-cta-call">📞 Call</a>
+  <a href="#contact" class="sticky-cta-book">Book Appointment</a>
+</div>
+
+<!-- Cookie Notice -->
+<div class="cookie-notice" id="cookie-notice">
+  <p>🍪 We use cookies to improve your experience on our website.</p>
+  <div class="cookie-btns">
+    <button id="cookie-accept" class="btn btn-primary btn-sm">Accept</button>
+    <button id="cookie-decline" class="btn btn-sm" style="background:transparent; color:var(--warm-500);">Decline</button>
+  </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
