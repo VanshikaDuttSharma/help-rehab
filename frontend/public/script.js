@@ -17,6 +17,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 700);
   }
 
+  // ── Hero Floating Particles ───────────────────────────────────
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    const particleWrap = document.createElement("div");
+    particleWrap.className = "hero-particles";
+    hero.appendChild(particleWrap);
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement("div");
+      p.className = "particle";
+      const size = Math.random() * 14 + 4;
+      p.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random() * 100}%;
+        bottom:${Math.random() * -20}%;
+        animation-duration:${Math.random() * 12 + 8}s;
+        animation-delay:${Math.random() * 8}s;
+        opacity:${Math.random() * 0.5 + 0.1};
+      `;
+      particleWrap.appendChild(p);
+    }
+  }
+
+  // ── Button Ripple Effect ──────────────────────────────────────
+  document.querySelectorAll(".btn").forEach(btn => {
+    btn.addEventListener("click", function(e) {
+      const r = document.createElement("span");
+      r.className = "ripple";
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+      this.appendChild(r);
+      setTimeout(() => r.remove(), 600);
+    });
+  });
+
   // ── Year ─────────────────────────────────────────────────────
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -98,6 +133,59 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add("visible"); io.unobserve(el.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // Also observe left/right/scale variants
+  const io2 = new IntersectionObserver(entries => {
+    entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add("visible"); io2.unobserve(el.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal-left, .reveal-right, .reveal-scale").forEach(el => io2.observe(el));
+
+  // ── Typewriter on hero title ──────────────────────────────────
+  const heroTitle = document.querySelector(".hero-title");
+  if (heroTitle) {
+    const original = heroTitle.innerHTML;
+    const plainText = heroTitle.textContent.trim();
+    heroTitle.innerHTML = "";
+    const cursor = document.createElement("span");
+    cursor.className = "typewriter-cursor";
+    let i = 0;
+    const type = () => {
+      if (i <= plainText.length) {
+        heroTitle.textContent = plainText.slice(0, i);
+        heroTitle.appendChild(cursor);
+        i++;
+        setTimeout(type, i === 1 ? 600 : 55);
+      } else {
+        // restore italic formatting after typing
+        setTimeout(() => {
+          heroTitle.innerHTML = original;
+          cursor.remove();
+        }, 400);
+      }
+    };
+    setTimeout(type, 900);
+  }
+
+  // ── Stagger doctor cards ──────────────────────────────────────
+  document.querySelectorAll(".doctor-card").forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.12}s`;
+  });
+
+  // ── Stagger service cards ─────────────────────────────────────
+  document.querySelectorAll(".service-card").forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.08}s`;
+  });
+
+  // ── Testi card in-view pop ────────────────────────────────────
+  const testiIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in-view");
+        testiIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll(".testi-card").forEach(c => testiIO.observe(c));
 
   // ── Hero slideshow ───────────────────────────────────────────
   const slides = document.querySelectorAll(".hero-slide");
